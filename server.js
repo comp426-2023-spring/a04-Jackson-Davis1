@@ -5,11 +5,12 @@ import express from "express"
 import { rps, rpsls } from "./lib/rpsls.js"
 
 
-const app = express();
-const args = minimist(process.argv.slice(2));
-const port = args.port || 5000;
+let app = express();
+let args = minimist(process.argv.slice(2));
+let port = args.port || 5000;
 
 app.use(express.json());
+
 app.use(express.urlencoded({extended: true}))
 
 app.get('/app', (req, res) => {
